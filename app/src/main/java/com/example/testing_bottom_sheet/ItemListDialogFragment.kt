@@ -30,9 +30,9 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        inspectionTextView.text = arguments?.getString(ARG_TITLE)
-        list.layoutManager = LinearLayoutManager(context)
-        list.adapter = ItemAdapter(names.size)
+        inspectionNameTextView.text = arguments?.getString(ARG_TITLE)
+        bottomSheetList.layoutManager = LinearLayoutManager(context)
+        bottomSheetList.adapter = ItemAdapter(names.size)
     }
 
     override fun getTheme(): Int = R.style.BottomSheetDialogTheme
@@ -48,7 +48,7 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
         )
     ) {
 
-        internal val text: TextView = itemView.text
+        internal val text: TextView = itemView.bottomSheetItemText
     }
 
     private inner class ItemAdapter internal constructor(private val mItemCount: Int) :

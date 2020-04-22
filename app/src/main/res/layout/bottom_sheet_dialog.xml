@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/inspectionTextView"
+        android:id="@+id/inspectionNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/bottom_sheet_item_spacing"
@@ -21,17 +21,17 @@
         tools:text="@string/inspection_name_label" />
 
     <View
-        android:id="@+id/line"
+        android:id="@+id/bottomSheetLine"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/bottom_sheet_item_spacing_quarter_plus"
         android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inspectionTextView" />
+        app:layout_constraintTop_toBottomOf="@id/inspectionNameTextView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+        android:id="@+id/bottomSheetList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line"
+        app:layout_constraintTop_toBottomOf="@+id/bottomSheetLine"
         tools:context=".ItemListDialogFragment"
         tools:listitem="@layout/bottom_sheet_dialog_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>
