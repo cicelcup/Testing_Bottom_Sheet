@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Testing_Bottom_Sheet</string>
     <string name="inspection_name_label">Nombre de la inspección</string>
+    <string name="finish_inspection_label">Finalizar Inspección</string>
+    <string name="sync_inspection_label">Sincronizar Inspección</string>
+    <string name="delete_inspection_label">Eliminar Inspección</string>
 </resources>

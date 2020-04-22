@@ -16,16 +16,22 @@ const val ARG_TITLE = "title"
 
 class ItemListDialogFragment : BottomSheetDialogFragment() {
 
-    val names: List<String> =
-        listOf("Finalizar Inspección", "Sincronizar Inspección", "Eliminar Inspección")
+    private lateinit var names: List<String>
+    private lateinit var icons: List<Int>
 
-    val icons: List<Int> =
-        listOf(R.drawable.ic_stop_24dp, R.drawable.ic_sync_24dp, R.drawable.ic_delete_24dp)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        names = listOf(
+            getString(R.string.finish_inspection_label),
+            getString(R.string.sync_inspection_label),
+            getString(R.string.delete_inspection_label)
+        )
+
+        icons = listOf(R.drawable.ic_stop_24dp, R.drawable.ic_sync_24dp, R.drawable.ic_delete_24dp)
+
         return inflater.inflate(R.layout.bottom_sheet_dialog, container, false)
     }
 
