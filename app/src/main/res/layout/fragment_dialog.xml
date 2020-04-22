@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:paddingTop="@dimen/list_item_spacing_half"
-    android:paddingBottom="@dimen/list_item_spacing_half"
-    tools:context=".ItemListDialogFragment"
-    tools:listitem="@layout/fragment_dialog_item" />
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/inspectionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/list_item_spacing"
+        android:layout_marginTop="@dimen/list_item_spacing_quarter_plus"
+        android:drawableStart="@drawable/ic_assignment_24dp"
+        android:drawablePadding="@dimen/icon_spacing"
+        android:paddingStart="@dimen/list_item_spacing_quarter"
+        android:paddingEnd="@dimen/list_item_spacing_quarter"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/inspection_name_label" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/list_item_spacing_quarter_plus"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inspectionTextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/list_item_spacing_half"
+        android:paddingBottom="@dimen/list_item_spacing_half"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        tools:context=".ItemListDialogFragment"
+        tools:listitem="@layout/fragment_dialog_item" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnBottomSheetDialogFragment.setOnClickListener {
-            ItemListDialogFragment.newInstance(3)
+            ItemListDialogFragment.newInstance("Jorge")
                 .show(supportFragmentManager, "dialog")
         }
 

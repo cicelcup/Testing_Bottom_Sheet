@@ -12,7 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_dialog.*
 import kotlinx.android.synthetic.main.fragment_dialog_item.view.*
 
-const val ARG_ITEM_COUNT = "item_count"
+const val ARG_TITLE = "title"
 
 class ItemListDialogFragment : BottomSheetDialogFragment() {
 
@@ -30,8 +30,9 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        inspectionTextView.text = arguments?.getString(ARG_TITLE)
         list.layoutManager = LinearLayoutManager(context)
-        list.adapter = arguments?.getInt(ARG_ITEM_COUNT)?.let { ItemAdapter(it) }
+        list.adapter = ItemAdapter(names.size)
     }
 
     private inner class ViewHolder internal constructor(
@@ -50,14 +51,15 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.text.text = names[position]
-            holder.text
-                .setCompoundDrawablesWithIntrinsicBounds(
+            with(holder.text) {
+                text = names[position]
+                setCompoundDrawablesWithIntrinsicBounds(
                     icons[position], 0, 0, 0
                 )
-            holder.text.compoundDrawablePadding = 16
-            holder.text.setOnClickListener {
-                Log.i("JAPM", names[position])
+                compoundDrawablePadding = 16
+                setOnClickListener {
+                    Log.i("JAPM", names[position])
+                }
             }
         }
 
@@ -67,10 +69,10 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
     }
 
     companion object {
-        fun newInstance(itemCount: Int): ItemListDialogFragment =
+        fun newInstance(title: String): ItemListDialogFragment =
             ItemListDialogFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_ITEM_COUNT, itemCount)
+                    putString(ARG_TITLE, title)
                 }
             }
 
