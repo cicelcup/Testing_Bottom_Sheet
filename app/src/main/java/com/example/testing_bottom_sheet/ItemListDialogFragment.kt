@@ -12,8 +12,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.bottom_sheet_dialog.*
 import kotlinx.android.synthetic.main.bottom_sheet_dialog_item.view.*
 
-const val ARG_TITLE = "title"
-
 class ItemListDialogFragment : BottomSheetDialogFragment() {
 
     private lateinit var names: List<String>
@@ -72,7 +70,7 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
                 )
                 compoundDrawablePadding = 16
                 setOnClickListener {
-                    Log.i("JAPM", names[position])
+                    Log.i(TAG, names[position])
                 }
             }
         }
@@ -83,6 +81,8 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
     }
 
     companion object {
+        const val ARG_TITLE = "title"
+        const val TAG = "ItemListDialogFragment"
         fun newInstance(title: String): ItemListDialogFragment =
             ItemListDialogFragment().apply {
                 arguments = Bundle().apply {
