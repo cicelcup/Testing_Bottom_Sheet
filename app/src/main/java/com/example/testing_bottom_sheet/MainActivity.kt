@@ -1,10 +1,10 @@
 package com.example.testing_bottom_sheet
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.bottom_sheet.*
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val btnBottomSheet = findViewById<Button>(R.id.btnBottomSheet)
         val btnBottomSheetDialog = findViewById<Button>(R.id.btnBottomSheetDialog)
         val btnBottomSheetDialogFragment = findViewById<Button>(R.id.btnBottomSheetDialogFragment)
-        
+
         btnBottomSheet.setOnClickListener {
             if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED)
@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnBottomSheetDialogFragment.setOnClickListener {
-            val bottomSheetFragment = BottomSheetFragment()
-            bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+            ItemListDialogFragment.newInstance(3)
+                .show(supportFragmentManager, "dialog")
         }
 
         bottomSheetBehavior.addBottomSheetCallback(object :
@@ -50,10 +50,10 @@ class MainActivity : AppCompatActivity() {
                     BottomSheetBehavior.STATE_HIDDEN -> {
                     }
                     BottomSheetBehavior.STATE_EXPANDED -> {
-                        Log.i("JAPM","STATE_EXPANDED")
+                        Log.i("JAPM", "STATE_EXPANDED")
                     }
                     BottomSheetBehavior.STATE_COLLAPSED -> {
-                        Log.i("JAPM","STATE_COLLAPSED")
+                        Log.i("JAPM", "STATE_COLLAPSED")
                     }
                     BottomSheetBehavior.STATE_DRAGGING -> {
                     }
