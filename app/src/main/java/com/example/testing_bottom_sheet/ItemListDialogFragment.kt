@@ -16,8 +16,11 @@ const val ARG_ITEM_COUNT = "item_count"
 
 class ItemListDialogFragment : BottomSheetDialogFragment() {
 
-    val readOnly: List<String> =
+    val names: List<String> =
         listOf("Finalizar Inspección", "Sincronizar Inspección", "Eliminar Inspección")
+
+    val icons: List<Int> =
+        listOf(R.drawable.ic_stop_24dp, R.drawable.ic_sync_24dp, R.drawable.ic_delete_24dp)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,9 +50,14 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.text.text = readOnly[position]
+            holder.text.text = names[position]
+            holder.text
+                .setCompoundDrawablesWithIntrinsicBounds(
+                    icons[position], 0, 0, 0
+                )
+            holder.text.compoundDrawablePadding = 16
             holder.text.setOnClickListener {
-                Log.i("JAPM", readOnly[position])
+                Log.i("JAPM", names[position])
             }
         }
 
