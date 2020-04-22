@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/list_item_spacing"
-        android:layout_marginTop="@dimen/list_item_spacing_quarter_plus"
+        android:layout_marginTop="@dimen/list_item_spacing"
         android:drawableStart="@drawable/ic_assignment_24dp"
         android:drawablePadding="@dimen/icon_spacing"
         android:paddingStart="@dimen/list_item_spacing_quarter"

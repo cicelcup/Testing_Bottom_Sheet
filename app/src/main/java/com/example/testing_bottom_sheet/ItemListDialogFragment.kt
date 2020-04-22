@@ -35,6 +35,8 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
         list.adapter = ItemAdapter(names.size)
     }
 
+    override fun getTheme(): Int = R.style.BottomSheetDialogTheme
+
     private inner class ViewHolder internal constructor(
         inflater: LayoutInflater,
         parent: ViewGroup
