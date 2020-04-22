@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.fragment_dialog.*
-import kotlinx.android.synthetic.main.fragment_dialog_item.view.*
+import kotlinx.android.synthetic.main.bottom_sheet_dialog.*
+import kotlinx.android.synthetic.main.bottom_sheet_dialog_item.view.*
 
 const val ARG_TITLE = "title"
 
@@ -26,7 +26,7 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_dialog, container, false)
+        return inflater.inflate(R.layout.bottom_sheet_dialog, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +40,13 @@ class ItemListDialogFragment : BottomSheetDialogFragment() {
     private inner class ViewHolder internal constructor(
         inflater: LayoutInflater,
         parent: ViewGroup
-    ) : RecyclerView.ViewHolder(inflater.inflate(R.layout.fragment_dialog_item, parent, false)) {
+    ) : RecyclerView.ViewHolder(
+        inflater.inflate(
+            R.layout.bottom_sheet_dialog_item,
+            parent,
+            false
+        )
+    ) {
 
         internal val text: TextView = itemView.text
     }
